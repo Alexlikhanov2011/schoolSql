@@ -68,7 +68,7 @@ class FacultyControllerMvcTest {
         when(facultyRepository.findById(any(Long.class))).thenReturn(Optional.of(faculty));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/student")
+                        .post("/faculty")
                         .content(facultyObject.toString())
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -79,7 +79,7 @@ class FacultyControllerMvcTest {
 
         facultyObject.put("id", id);
         mockMvc.perform(MockMvcRequestBuilders
-                        .put("/student")
+                        .put("/faculty")
                         .content(facultyObject.toString())
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
