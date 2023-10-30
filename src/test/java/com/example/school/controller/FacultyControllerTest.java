@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,10 @@ public class FacultyControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
+
+    @BeforeEach
+    void setUp() {
+    }
 
     @Test
     void contextLoads() throws Exception{
