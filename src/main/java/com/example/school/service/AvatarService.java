@@ -7,6 +7,7 @@ import com.example.school.repository.AvatarRepository;
 import com.example.school.repository.StudentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
 
 @Service
 public class AvatarService {
@@ -67,4 +69,7 @@ public class AvatarService {
     public Avatar find(long studentId) {
         return avatarRepository.findByStudentId(studentId).orElse(null);
     }
+public Collection <Avatar> find(int page, int pageSize){
+        return avatarRepository.findAll(PageRequest.of(page, pageSize)).getContent();
+}
 }
