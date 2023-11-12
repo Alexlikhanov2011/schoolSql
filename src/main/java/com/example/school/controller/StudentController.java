@@ -7,6 +7,7 @@ import com.example.school.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/student")
@@ -53,5 +54,19 @@ public class StudentController {
     @GetMapping("/byAgeBetween")
     public Collection<Student> byAgeBetween(@RequestParam int min, @RequestParam int max) {
         return service.filterByAgeBetween(min, max);
+    }
+    @GetMapping("/findAllStudentsInSchool")
+    public Integer findAllStudentsInSchool() {
+        return service.findAllStudentsInSchool();
+    }
+
+    @GetMapping("/AvgAgeStudent")
+    public Double AvgAgeStudent() {
+        return service.AvgAgeStudent();
+    }
+
+    @GetMapping("/findLastFiveStudent")
+    public List<Student> findLastFiveStudents() {
+        return service.findLastFiveStudents();
     }
 }
