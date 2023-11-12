@@ -1,0 +1,19 @@
+select * from faculty;
+
+select * from student;
+
+SELECT * FROM student WHERE age BETWEEN 10 AND 19;
+
+SELECT name FROM student;
+
+SELECT * FROM student WHERE name LIKE '%i%';
+
+SELECT * FROM student WHERE age > id;
+
+SELECT * FROM student ORDER BY age;
+
+SELECT faculty.id, faculty.name, faculty.color, student.name from faculty, student
+where student.faculty_id = faculty.id and faculty_id = 4;
+
+SELECT student.id, student.name, faculty.name from student, faculty
+where student.faculty_id = faculty_id and student.id = 10;
