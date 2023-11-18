@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -66,5 +67,22 @@ public class StudentService {
 
     public List<Student> findLastFiveStudents() {
         return studentRepository.findLastFiveStudents();
+    }
+
+    public Collection <String> getStudentNameStartA(){
+       return studentRepository.findAll().stream()
+                .map(Student::getName)
+                .map(String::toUpperCase)
+                .filter(name -> name.startsWith("A"))
+                .sorted()
+                .collect(Collectors.toList());
+    }
+    public double streamAverageAge(){
+        return studentRepository.findAll()
+                .stream()
+                .map(Student::getAge)
+                .mapToInt(o->o)
+                .average()
+                .orElse(0d);
     }
 }

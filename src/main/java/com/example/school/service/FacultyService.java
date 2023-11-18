@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Comparator;
 
 @Service
 public class FacultyService {
@@ -46,5 +47,12 @@ public class FacultyService {
     public Collection<Faculty> filterByNameOrColor(String name, String color) {
         logger.info("filterAgeBetween was invoked with argument {}:{}", name,color);
         return facultyRepository.findAllByNameOrColorIgnoreCase(name,color);
+    }
+    public String getLongestFacultyName(){
+        return facultyRepository.findAll()
+                .stream()
+                .map(Faculty::getName)
+                .max(Comparator.comparingInt(String:: length))
+                .orElse(null);
     }
 }
