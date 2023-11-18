@@ -78,4 +78,12 @@ public class StudentController {
     public double getStreamaverageAge(){
         return service.streamAverageAge();
 }
+@GetMapping ("/printNonSync")
+    public void printNonSync(){
+        service.printNonSync();
+}
+    @GetMapping ("/printSync")
+    public void printSync(){
+        service.printSync();
+    }
 }
