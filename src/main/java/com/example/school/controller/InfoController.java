@@ -27,6 +27,17 @@ public class InfoController {
 
     @GetMapping("/test")
     public int test(){
+        long startTime = System.currentTimeMillis();
+        int sum =
+                Stream.of(1,2,3,4,5,6,7,8,9,10).parallel()
+                        .map(a -> a * a)
+                        .limit(1000000)
+                        .reduce(0, Integer::sum);
+        logger.info("Elapsed: {}", System.currentTimeMillis() - startTime);
+        return sum;
+    }
+    @GetMapping("/test1")
+    public int test1(){
       long startTime = System.currentTimeMillis();
        int sum = IntStream.iterate(1, a -> a +1) .limit(1_000_000) .reduce(0, (a, b) -> a + b );
        logger.info("Elapsed: {}", System.currentTimeMillis() - startTime);
