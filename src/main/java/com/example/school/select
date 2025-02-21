@@ -21,3 +21,7 @@ SELECT student.id, student.name, faculty.name from student, faculty
 where student.faculty_id = faculty_id and student.id = 10;
 
 insert into student (age, name, faculty_id) values (15, 'ggg' , 2);
+
+select * from databasechangelog;
+
+select * from databasechangeloglock;

@@ -69,4 +69,21 @@ public class StudentController {
     public List<Student> findLastFiveStudents() {
         return service.findLastFiveStudents();
     }
+
+@GetMapping ("/nameStratsA")
+    public Collection<String> getStudentsNameStartsA(){
+        return service.getStudentNameStartA();
+}
+@GetMapping ("/averageAge")
+    public double getStreamaverageAge(){
+        return service.streamAverageAge();
+}
+@GetMapping ("/printNonSync")
+    public void printNonSync(){
+        service.printNonSync();
+}
+    @GetMapping ("/printSync")
+    public void printSync(){
+        service.printSync();
+    }
 }
